@@ -1,0 +1,20 @@
+socket.io server run kar rahe hai jo ek instance hai http ka 
+
+socket.io jo server run kara hai humne ye listen karega incoming events ko
+
+socket ek particular connection hai.... io.on ka mtlb kya hua???
+
+io.on ka mtlb ye hai ki ye ek socket.io instance hai mtlb jo ki bohot saare connections ko listen karega
+
+socket.on ka ye mtlb hai ki jab bhi ek particular connection ke saath kuch hoga to to uske saath kya hona chahiye ye socket.on handle karta hai
+
+socket.on('new-user-joined', name => {
+        users[socket.id] = name;
+        socket.broadcast.emit('user-joined', name);
+    });
+socket.on ka mtlb hai ye event agr milta hai isko new user joined wala to aage wale callbacks run karega  
+
+<script src="http://localhost:8000/socket.io/socket.io.js"></script>
+isse server aur client connect ho gaye hai
+
+Script mein defer laga dene se vo background mein run hogi aur baaki ka load hone dega warna wahin fasske rah jaayega aur aage wala code read hi nhi karega 
